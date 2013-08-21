@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BskDPP2013ExcelImportToDatabase.iml" filepath="$PROJECT_DIR$/BskDPP2013ExcelImportToDatabase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BskDPP2013ExcelImportToDatabase-grailsPlugins.iml" filepath="$PROJECT_DIR$/BskDPP2013ExcelImportToDatabase-grailsPlugins.iml" />
+    </modules>
+  </component>
+</project>
+

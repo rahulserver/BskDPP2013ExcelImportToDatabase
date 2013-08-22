@@ -26,6 +26,8 @@
 					
 						<g:sortableColumn property="samitiName" title="${message(code: 'samiti.samitiName.label', default: 'Samiti Name')}" />
 					
+						<g:sortableColumn property="emailId" title="${message(code: 'samiti.emailId.label', default: 'Email Id')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -33,6 +35,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${samitiInstance.id}">${fieldValue(bean: samitiInstance, field: "samitiName")}</g:link></td>
+					
+						<td>${fieldValue(bean: samitiInstance, field: "emailId")}</td>
 					
 					</tr>
 				</g:each>

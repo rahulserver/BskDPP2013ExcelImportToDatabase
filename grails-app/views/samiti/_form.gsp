@@ -10,6 +10,14 @@
 	<g:textField name="samitiName" value="${samitiInstance?.samitiName}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: samitiInstance, field: 'emailId', 'error')} ">
+	<label for="emailId">
+		<g:message code="samiti.emailId.label" default="Email Id" />
+		
+	</label>
+	<g:field type="email" name="emailId" value="${samitiInstance?.emailId}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: samitiInstance, field: 'report', 'error')} ">
 	<label for="report">
 		<g:message code="samiti.report.label" default="Report" />

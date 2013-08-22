@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${samitiInstance?.emailId}">
+				<li class="fieldcontain">
+					<span id="emailId-label" class="property-label"><g:message code="samiti.emailId.label" default="Email Id" /></span>
+					
+						<span class="property-value" aria-labelledby="emailId-label"><g:fieldValue bean="${samitiInstance}" field="emailId"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${samitiInstance?.report}">
 				<li class="fieldcontain">
 					<span id="report-label" class="property-label"><g:message code="samiti.report.label" default="Report" /></span>

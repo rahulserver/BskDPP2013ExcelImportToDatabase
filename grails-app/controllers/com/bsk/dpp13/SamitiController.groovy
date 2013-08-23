@@ -102,7 +102,6 @@ class SamitiController {
     def listAllAggregatedSamitiWise(Integer max) {
         params.max = Math.min(max ?: 10, 100)
 
-        //render a
         [samitiInstanceList: Samiti.list(params), samitiInstanceTotal: Samiti.count(),cl3Total: Samiti.first().aggregatedReportMap]
     }
 

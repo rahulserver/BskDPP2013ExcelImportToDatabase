@@ -4,8 +4,10 @@ class Report {
     String repId
     String karyalayaAssignedId
     Integer versionNumber
+    Center center
     static hasMany = [school:School]
     static belongsTo = [samiti:Samiti]
+
     Boolean mailedToSamiti=false
     Boolean mailedToCenter=false
     Boolean deleted=false
@@ -18,6 +20,8 @@ class Report {
         repId nullable:true
         versionNumber nullable:true
         karyalayaAssignedId nullable: false
+        center nullable:true
+        d nullable: true
     }
     def beforeInsert(){
         this.timestamp=System.nanoTime()

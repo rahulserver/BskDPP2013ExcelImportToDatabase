@@ -971,13 +971,31 @@ class ReportController {
             redirect(action: "show", id: id)
         }
     }
-    def ajaxEmail(){
+    def ajaxEmailToSamiti(){
         def report=Report.findById(params.id)
         def fullQualifiedFileName= "${report.samiti.samitiName}\\${report.karyalayaAssignedId}\\${report.samiti.samitiName}#${report.karyalayaAssignedId}.xls"
         try {
             sendMail{
                 multipart true
                 to report.samiti.emailId
+                subject "Hariom!"
+                html "This is the excel sheet contining the details of your report received on ${report.d.date}\\${report.d.month}\\${report.d.year}"
+                attachBytes fullQualifiedFileName, "application/vnd.ms-excel", new File(fullQualifiedFileName).readBytes()
+            }
+            report.setMailedToSamiti(true)
+            flash.message="Mail sent to Report ${report.karyalayaAssignedId} successfully!!"
+        } catch (Exception e) {
+          flash.message="Failed To Send Mail!! due to ${e.message} \n ${e.properties}"
+        }
+        redirect(uri:'/')
+    }
+    def ajaxEmailToCenter(){
+        def report=Report.findById(params.id)
+        def fullQualifiedFileName= "${report.samiti.samitiName}\\${report.karyalayaAssignedId}\\${report.samiti.samitiName}#${report.karyalayaAssignedId}.xls"
+        try {
+            sendMail{
+                multipart true
+                to report.center.emailId
                 subject "Hariom!"
                 html "This is the excel sheet contining the details of your report received on ${report.d.date}\\${report.d.month}\\${report.d.year}"
                 attachBytes fullQualifiedFileName, "application/vnd.ms-excel", new File(fullQualifiedFileName).readBytes()

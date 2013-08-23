@@ -95,6 +95,7 @@ img {
 }
 
 .content {
+    overflow:auto;
 }
 
 .content h1 {
@@ -105,6 +106,7 @@ img {
 
 .scaffold-list h1 {
 	border: none;
+    overflow:auto;
 }
 
 .footer {

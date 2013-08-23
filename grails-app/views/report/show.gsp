@@ -59,7 +59,18 @@
             <g:if test="${reportInstance?.school}">
                 <table>
                     <tr>
-                        <th>Name</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>College</th>
+                        <th>Name</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>College</th>
                     </tr>
                 </table>
                 <div style="height:300px;overflow-y:auto">

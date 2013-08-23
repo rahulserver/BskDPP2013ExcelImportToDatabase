@@ -18,6 +18,22 @@
 	<g:field type="email" name="emailId" value="${samitiInstance?.emailId}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: samitiInstance, field: 'samitiLevelSewadhariName', 'error')} ">
+	<label for="samitiLevelSewadhariName">
+		<g:message code="samiti.samitiLevelSewadhariName.label" default="Samiti Level Sewadhari Name" />
+		
+	</label>
+	<g:textField name="samitiLevelSewadhariName" value="${samitiInstance?.samitiLevelSewadhariName}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: samitiInstance, field: 'samitiTelephoneNumber', 'error')} ">
+	<label for="samitiTelephoneNumber">
+		<g:message code="samiti.samitiTelephoneNumber.label" default="Samiti Telephone Number" />
+		
+	</label>
+	<g:field name="samitiTelephoneNumber" type="number" value="${samitiInstance.samitiTelephoneNumber}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: samitiInstance, field: 'report', 'error')} ">
 	<label for="report">
 		<g:message code="samiti.report.label" default="Report" />
@@ -33,5 +49,13 @@
 </li>
 </ul>
 
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: samitiInstance, field: 'state', 'error')} required">
+	<label for="state">
+		<g:message code="samiti.state.label" default="State" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="state" name="state.id" from="${com.bsk.dpp13.State.list()}" optionKey="id" required="" value="${samitiInstance?.state?.id}" class="many-to-one"/>
 </div>
 

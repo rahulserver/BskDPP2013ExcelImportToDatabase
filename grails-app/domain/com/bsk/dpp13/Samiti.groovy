@@ -1,12 +1,19 @@
 package com.bsk.dpp13
 
 class Samiti{
-    static hasMany=[report:Report]
+
     String samitiName
     String emailId
+    String samitiLevelSewadhariName
+    Long samitiTelephoneNumber
+
+    static belongsTo = [state:State]
+    static hasMany=[report:Report]
     static constraints = {
         samitiName nullable:false,unique: true
         emailId email:true,nullable:true
+        samitiLevelSewadhariName nullable:true
+        samitiTelephoneNumber nullable:true
     }
     def getAggregatedReportMap(){
         def cl3Total=report*.totalsForThisReport.cl3Total.sum()

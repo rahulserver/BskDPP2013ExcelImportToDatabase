@@ -14,7 +14,7 @@
         <g:message code="report.d.label" default="D"/>
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="d" precision="day" value="${reportInstance?.d}"/>
+    <g:datePicker default="none" noSelection="['':'']" name="d" precision="day" value="${reportInstance?.d}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reportInstance, field: 'formFile', 'error')} required">
@@ -22,7 +22,7 @@
         <g:message code="report.formFile.label" default="Excel File"/>
         <span class="required-indicator">*</span>
     </label>
-    <input type="file" id="myExcelFile" name="myExcelFile" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+    <input type="file" id="myExcelFile" required="true" name="myExcelFile" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reportInstance, field: 'samiti', 'error')} required">
@@ -32,6 +32,14 @@
     </label>
     <g:select id="samiti" name="samiti.id" from="${com.bsk.dpp13.Samiti.list()}" optionKey="id" optionValue="samitiName" required=""
               value="${reportInstance?.samiti?.id}" class="many-to-one" />
+</div>
+
+<div class="fieldcontain">
+    <label for="center">
+        <g:message code="report.center.label" default="Center"/>
+    </label>
+    <g:select id="center" name="center.id" from="${com.bsk.dpp13.Center.list()}" noSelection="${['':'Select One...']}" optionKey="id" optionValue="centerName"
+              value="${reportInstance?.center?.id}" class="many-to-one" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reportInstance, field: 'school', 'error')} ">

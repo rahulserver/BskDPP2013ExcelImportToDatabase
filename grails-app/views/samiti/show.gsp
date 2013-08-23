@@ -41,6 +41,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${samitiInstance?.samitiLevelSewadhariName}">
+				<li class="fieldcontain">
+					<span id="samitiLevelSewadhariName-label" class="property-label"><g:message code="samiti.samitiLevelSewadhariName.label" default="Samiti Level Sewadhari Name" /></span>
+					
+						<span class="property-value" aria-labelledby="samitiLevelSewadhariName-label"><g:fieldValue bean="${samitiInstance}" field="samitiLevelSewadhariName"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${samitiInstance?.samitiTelephoneNumber}">
+				<li class="fieldcontain">
+					<span id="samitiTelephoneNumber-label" class="property-label"><g:message code="samiti.samitiTelephoneNumber.label" default="Samiti Telephone Number" /></span>
+					
+						<span class="property-value" aria-labelledby="samitiTelephoneNumber-label"><g:fieldValue bean="${samitiInstance}" field="samitiTelephoneNumber"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${samitiInstance?.report}">
 				<li class="fieldcontain">
 					<span id="report-label" class="property-label"><g:message code="samiti.report.label" default="Report" /></span>
@@ -48,6 +66,15 @@
 						<g:each in="${samitiInstance.report}" var="r">
 						<span class="property-value" aria-labelledby="report-label"><g:link controller="report" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
 						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${samitiInstance?.state}">
+				<li class="fieldcontain">
+					<span id="state-label" class="property-label"><g:message code="samiti.state.label" default="State" /></span>
+					
+						<span class="property-value" aria-labelledby="state-label"><g:link controller="state" action="show" id="${samitiInstance?.state?.id}">${samitiInstance?.state?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

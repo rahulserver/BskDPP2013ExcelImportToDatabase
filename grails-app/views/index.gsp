@@ -134,28 +134,29 @@
                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                     <td>${reportInstance.karyalayaAssignedId}</td>
                     <td>${reportInstance.samiti.samitiName}</td>
-                    <td><g:remoteLink controller="report" action="ajaxEmail"
+                    <td><g:remoteLink controller="report" action="ajaxEmailToSamiti"
                                       id="${reportInstance.id}">Mail</g:remoteLink></td>
                 </tr>
             </g:each>
             </tbody>
         </table>
-        <g:set var="reportSamitiMailPendingList" value="${Report.findAllByMailedToCenterAndDeleted(false, false)}"/>
-        <h2>There are ${reportSamitiMailPendingList.size()} reports waiting for mail to centres</h2>
+        <g:set var="reportCenterMailPendingList" value="${Report.findAllByCenterIsNotNullAndMailedToCenterAndDeleted(false, false)}"/>
+        <h2>Here are ${reportCenterMailPendingList.size()} reports waiting for mail to centres</h2>
         <table>
             <thead>
             <tr class="sortable">
                 <th>Report Id</th>
-                <th>Samiti</th>
+                <th>Center</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <g:each in="${reportSamitiMailPendingList}" status="i" var="reportInstance">
+            <g:each in="${reportCenterMailPendingList}" status="i" var="reportInstance">
                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                    <td>${reportInstance.karyalayaAssignedId}</td>
-                    <td>${reportInstance.samiti.samitiName}</td>
-                    <td>Mail</td>
+                    <td>${reportInstance?.karyalayaAssignedId}</td>
+                    <td>${reportInstance?.center?.centerName?:null}</td>
+                    <td><g:remoteLink controller="report" action="ajaxEmailToCenter"
+                                      id="${reportInstance.id}">Mail</g:remoteLink></td>
                 </tr>
             </g:each>
             </tbody>

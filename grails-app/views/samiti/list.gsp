@@ -28,6 +28,12 @@
 					
 						<g:sortableColumn property="emailId" title="${message(code: 'samiti.emailId.label', default: 'Email Id')}" />
 					
+						<g:sortableColumn property="samitiLevelSewadhariName" title="${message(code: 'samiti.samitiLevelSewadhariName.label', default: 'Samiti Level Sewadhari Name')}" />
+					
+						<g:sortableColumn property="samitiTelephoneNumber" title="${message(code: 'samiti.samitiTelephoneNumber.label', default: 'Samiti Telephone Number')}" />
+					
+						<th><g:message code="samiti.state.label" default="State" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +43,12 @@
 						<td><g:link action="show" id="${samitiInstance.id}">${fieldValue(bean: samitiInstance, field: "samitiName")}</g:link></td>
 					
 						<td>${fieldValue(bean: samitiInstance, field: "emailId")}</td>
+					
+						<td>${fieldValue(bean: samitiInstance, field: "samitiLevelSewadhariName")}</td>
+					
+						<td>${fieldValue(bean: samitiInstance, field: "samitiTelephoneNumber")}</td>
+					
+						<td>${fieldValue(bean: samitiInstance, field: "state")}</td>
 					
 					</tr>
 				</g:each>

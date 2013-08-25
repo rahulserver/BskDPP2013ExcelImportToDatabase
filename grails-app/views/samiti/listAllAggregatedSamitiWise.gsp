@@ -1,4 +1,4 @@
-<%@ page import="com.bsk.dpp13.Samiti" %>
+<%@ page import="com.bsk.dpp13.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -88,6 +88,39 @@
                     </tr>
                 </tfoot>
 			</table>
+            <table>
+                <thead>
+                    <tr><th>GBTG</th><th>SSKK</th><th>DBPC</th><th>CHG</th><th>KPK</th><th>POUC</th><th>CBAG</th><th>CBAB</th><th>BADG</th><th>DSMS</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            ${(School.findById(1).getGeometryBoxAndTulsiGoli())}
+                        </td>
+                        <td>
+                            ${samitiInstanceList*.report*.school*.sapsidiKaKhel.sum()}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.drawingBook.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.colour.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.chhotiGhadi.sum({it?:0})}
+                        </td>><td>
+                            ${samitiInstanceList*.report*.school*.karmphalKhel.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.pouch.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.collegeBag.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.collegeBagBig.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.badiGhadi.sum({it?:0})}
+                        </td><td>
+                            ${samitiInstanceList*.report*.school*.diarySms.sum({it?:0})}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 			<div class="pagination">
 				<g:paginate total="${samitiInstanceTotal}" />
 			</div>
